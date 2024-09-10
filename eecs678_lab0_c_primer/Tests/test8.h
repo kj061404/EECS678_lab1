@@ -5,6 +5,7 @@
 #include "ListQuestions.h"
 
 int test8() {
+    printf("Running Test 8: Linked List Functions\n");
     int points = 10;
 
     // Step 1: Create two linked lists with negative and positive integers

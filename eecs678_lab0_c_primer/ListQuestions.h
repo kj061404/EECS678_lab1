@@ -22,8 +22,20 @@
 
 static bool hasCycle(struct Node *head)
 {
-	//Placeholder return statement
-	return false;
+	struct Node* slow = head;
+  struct Node* fast = head;
+
+  while (fast != NULL && fast->next != NULL) {
+      slow = slow->next;
+      fast = fast->next->next;
+
+      // If slow and fast meet, there's a cycle
+      if (slow == fast) {
+          return true;  // Cycle detected
+      }
+  }
+  return false;  // No cycle
+
 }
 
 /*
@@ -47,8 +59,28 @@ static bool hasCycle(struct Node *head)
 
 static struct Node* mergeLists(struct Node* list1, struct Node* list2)
 {
+	struct Node* list3 = NULL;
+	while ((list1 != NULL) && (list2 != NULL)) {
+		if ((list1->data < list2->data)) {
+			list3 = insertAtEnd(list3, list1->data);
+			list1 = list1->next;
+		} else {
+			list3 = insertAtEnd(list3, list2->data);
+			list2 = list2->next;
+		}
+	}
+	while (list1 != NULL) {
+        list3 = insertAtEnd(list3, list1->data);
+        list1 = list1->next;
+    }
+	while (list2 != NULL) {
+        list3 = insertAtEnd(list3, list2->data);
+        list2 = list2->next;
+    }
+
+
 	//Placeholder return statement
-	return NULL;
+	return list3;
 }
 
 #endif

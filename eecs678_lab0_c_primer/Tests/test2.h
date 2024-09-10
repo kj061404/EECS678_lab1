@@ -5,6 +5,7 @@
 #include "ListQuestions.h"
 
 int test2() {
+    printf("Running Test 2: Linked List Functions\n");
     int points = 10;
 
     // Step 1: Create two sorted linked lists of different lengths
